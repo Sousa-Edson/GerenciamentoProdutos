@@ -24,6 +24,7 @@ public class Unidade {
     @GeneratedValue
     private Long id;
     private String nome;
+     private String descricao;
     private Boolean ativo;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
@@ -72,9 +73,20 @@ public class Unidade {
         this.usuario = usuario;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     @Override
     public String toString() {
-        return "Unidade{" + "id=" + id + ", nome=" + nome + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
+        return "Unidade{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
     }
+    
+
+   
 
 }

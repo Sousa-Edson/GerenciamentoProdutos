@@ -17,8 +17,9 @@ public class UnidadeService {
     public void salvar() throws Exception {
         Date d = new Date();
         Usuario user = new Usuario();
-        user.setId(2L);
-        u.setNome("exs");
+        user.setId(3L);
+        u.setNome("pct");
+        u.setDescricao("pacotes");
         u.setAtivo(true);
         u.setUsuario(user);
         u.setDataHora(d);

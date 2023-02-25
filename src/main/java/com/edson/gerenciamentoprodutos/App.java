@@ -7,6 +7,6 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         UnidadeService service = new UnidadeService();
-        service.consultaPorId(6L);
+        service.salvar();
     }
 }
