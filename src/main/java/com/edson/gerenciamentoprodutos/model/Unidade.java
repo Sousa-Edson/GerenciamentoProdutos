@@ -29,6 +29,7 @@ public class Unidade {
     private String nome;
     private String descricao;
     private Boolean ativo;
+    private Boolean fragmentado;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
     private Date dataHora;
@@ -93,6 +94,14 @@ public class Unidade {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public Boolean getFragmentado() {
+        return fragmentado;
+    }
+
+    public void setFragmentado(Boolean fragmentado) {
+        this.fragmentado = fragmentado;
     }
 
     @Override
