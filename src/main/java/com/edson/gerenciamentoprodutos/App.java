@@ -1,15 +1,13 @@
  
 package com.edson.gerenciamentoprodutos;
 
-import com.edson.gerenciamentoprodutos.service.ProdutoService;
-import com.edson.gerenciamentoprodutos.service.UsuarioService;
+import com.edson.gerenciamentoprodutos.service.NcmService;
  
 public class App {
 
     public static void main(String[] args) throws Exception {
-//        ProdutoService service = new ProdutoService();
-//        service.consultaTodos();
-        UsuarioService service = new UsuarioService();
-          service.consultaTodosTeste();
+       NcmService service = new NcmService();
+        service.consultaPorId(1L);
+        
     }
 }

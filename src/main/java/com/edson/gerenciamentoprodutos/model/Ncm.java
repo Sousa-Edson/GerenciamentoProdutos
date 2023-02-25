@@ -1,30 +1,27 @@
 package com.edson.gerenciamentoprodutos.model;
 
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Unidade.consultaTodos",
-            query = "SELECT u FROM Unidade u ")
+    @NamedQuery(name = "Ncm.consultaTodos",
+            query = "SELECT n FROM Ncm n ")
 
 })
-public class Unidade {
+public class Ncm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String descricao;
@@ -32,12 +29,8 @@ public class Unidade {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
     private Date dataHora;
-
     @ManyToOne()
     private Usuario usuario;
-
-    @OneToMany(mappedBy = "unidade", fetch = FetchType.LAZY)
-    private List<Produto> produtos;
 
     public Long getId() {
         return id;
@@ -53,6 +46,14 @@ public class Unidade {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Boolean getAtivo() {
@@ -79,25 +80,9 @@ public class Unidade {
         this.usuario = usuario;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
     @Override
     public String toString() {
-        return "Unidade{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
+        return "Ncm{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
     }
 
 }
