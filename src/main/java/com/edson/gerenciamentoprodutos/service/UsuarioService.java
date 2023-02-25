@@ -1,6 +1,7 @@
 package com.edson.gerenciamentoprodutos.service;
 
 import com.edson.gerenciamentoprodutos.dao.UsuarioDAO;
+import com.edson.gerenciamentoprodutos.model.Unidade;
 import com.edson.gerenciamentoprodutos.model.Usuario;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,6 +40,17 @@ public class UsuarioService {
         List<Usuario> usuarios = dao.consultarTodos();
         for (Usuario u : usuarios) {
             System.out.println(u.toString());
+        }
+    }
+
+    public void consultaTodosTeste() {
+        List<Usuario> usuarios = dao.consultarTodos();
+        for (Usuario u : usuarios) {
+            System.out.println(u.getNome()+" {");
+            for (Unidade uni : u.getUnidades()) {
+                System.out.println(uni.toString());
+            }
+            System.out.println("}");
         }
     }
 }

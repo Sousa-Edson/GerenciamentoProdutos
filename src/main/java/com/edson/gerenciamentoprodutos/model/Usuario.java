@@ -33,7 +33,7 @@ public class Usuario {
     @Column(name = "data_hora")
     private Date dataHora;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Unidade> unidades;
 
     public Long getId() {
@@ -86,7 +86,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", dataHora=" + dataHora + ", unidades=" + unidades + '}';
+        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", dataHora=" + dataHora +   '}';
     }
 
 }
