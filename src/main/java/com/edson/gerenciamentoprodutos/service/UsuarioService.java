@@ -14,13 +14,22 @@ public class UsuarioService {
     UsuarioDAO dao = new UsuarioDAO();
     DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
-    public void salvar() throws Exception {
+//    public void salvar() throws Exception {
+//        Date d = new Date();
+//        u.setNome("Edson");
+//        u.setLogin("edson");
+//        u.setSenha("123456");
+//        u.setDataHora(d);
+//        u.setAtivo(true);
+//        u = dao.Salvar(u);
+//        System.out.println(u.toString() + "  data hora: " + d);
+//    }
+    public void salvarUpdate(Usuario u) throws Exception {
         Date d = new Date();
-        u.setNome("Admin");
-        u.setLogin("admin");
-        u.setSenha("admin");
+        u = (Usuario) consultaPorId(u.getId());
+        u.setNome("funciona aqui");
         u.setDataHora(d);
-//        u.setId(4L);
+        
         u = dao.Salvar(u);
         System.out.println(u.toString() + "  data hora: " + d);
     }
@@ -31,9 +40,10 @@ public class UsuarioService {
         System.out.println(u.toString());
     }
 
-    public void consultaPorId(Long id) {
+    public Usuario consultaPorId(Long id) {
         Usuario u = dao.consultaPorId(id);
         System.out.println(u.toString());
+        return u;
     }
 
     public void consultaTodos() {

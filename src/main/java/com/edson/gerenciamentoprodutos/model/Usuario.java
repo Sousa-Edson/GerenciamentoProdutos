@@ -29,6 +29,8 @@ public class Usuario {
     private String login;
     private String senha;
 
+    private Boolean ativo;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
     private Date dataHora;
@@ -148,6 +150,14 @@ public class Usuario {
 
     public void setItens(List<Item> itens) {
         this.itens = itens;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 
     @Override
