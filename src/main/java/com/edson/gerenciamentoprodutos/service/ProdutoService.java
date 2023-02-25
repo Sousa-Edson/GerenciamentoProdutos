@@ -1,6 +1,7 @@
 package com.edson.gerenciamentoprodutos.service;
 
 import com.edson.gerenciamentoprodutos.dao.ProdutoDAO;
+import com.edson.gerenciamentoprodutos.model.Ncm;
 import com.edson.gerenciamentoprodutos.model.Produto;
 import com.edson.gerenciamentoprodutos.model.Unidade;
 import com.edson.gerenciamentoprodutos.model.Usuario;
@@ -19,16 +20,20 @@ public class ProdutoService {
         Date d = new Date();
         
         Usuario user = new Usuario();
-        user.setId(3L);
+        user.setId(1L);
         
         Unidade uni = new Unidade();
-        uni.setId(9L);
+        uni.setId(2L);
         
-        p.setNome("Mamão");
-        p.setObservação("Mamão papaya");
+        Ncm ncm = new Ncm();
+        ncm.setId(1L);
+        
+        p.setNome("Banana");
+        p.setObservação("Banana prata");
         p.setAtivo(true);
         p.setUsuario(user);
         p.setUnidade(uni);
+        p.setNcm(ncm);
         p.setDataHora(d);
         p.setValor(0.89);
         p = dao.Salvar(p);

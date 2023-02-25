@@ -20,12 +20,12 @@ public class UsuarioService {
         u.setLogin("i09");
         u.setSenha("1234");
         u.setDataHora(d);
-        u.setId(4L);
+//        u.setId(4L);
         u = dao.Salvar(u);
         System.out.println(u.toString() + "  data hora: " + d);
     }
 
-    public void deletar(Long id) {
+    public void deletar(Usuario u, Long id) {
         u.setId(id);
         u = dao.remover(u.getId());
         System.out.println(u.toString());
@@ -46,7 +46,7 @@ public class UsuarioService {
     public void consultaTodosTeste() {
         List<Usuario> usuarios = dao.consultarTodos();
         for (Usuario u : usuarios) {
-            System.out.println(u.getNome()+" {");
+            System.out.println(u.getNome() + " {");
             for (Unidade uni : u.getUnidades()) {
                 System.out.println(uni.toString());
             }

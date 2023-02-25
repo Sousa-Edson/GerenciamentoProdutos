@@ -17,7 +17,7 @@ public class NcmService {
     public void salvar() throws Exception {
         Date d = new Date();
         Usuario user = new Usuario();
-        user.setId(2L);
+        user.setId(1L);
         n.setNome("47111091");
         n.setDescricao("pacotes de papel e plastico");
         n.setAtivo(true);

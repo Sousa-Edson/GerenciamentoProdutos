@@ -35,6 +35,9 @@ public class Produto {
     @ManyToOne()
     private Unidade unidade;
 
+    @ManyToOne()
+    private Ncm ncm;
+
     public Long getId() {
         return id;
     }
@@ -97,6 +100,14 @@ public class Produto {
 
     public void setUnidade(Unidade unidade) {
         this.unidade = unidade;
+    }
+
+    public Ncm getNcm() {
+        return ncm;
+    }
+
+    public void setNcm(Ncm ncm) {
+        this.ncm = ncm;
     }
 
     @Override
