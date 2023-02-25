@@ -34,8 +34,14 @@ public class Usuario {
     @Column(name = "data_hora")
     private Date dataHora;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario")
     private List<Unidade> unidades;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Ncm> ncms;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Empresa> empresas;
 
     public Long getId() {
         return id;
@@ -85,9 +91,25 @@ public class Usuario {
         this.unidades = unidades;
     }
 
+    public List<Ncm> getNcms() {
+        return ncms;
+    }
+
+    public void setNcms(List<Ncm> ncms) {
+        this.ncms = ncms;
+    }
+
+    public List<Empresa> getEmpresas() {
+        return empresas;
+    }
+
+    public void setEmpresas(List<Empresa> empresas) {
+        this.empresas = empresas;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", dataHora=" + dataHora +   '}';
+        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", dataHora=" + dataHora + '}';
     }
 
 }
