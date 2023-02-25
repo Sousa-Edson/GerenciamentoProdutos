@@ -1,5 +1,6 @@
 package com.edson.gerenciamentoprodutos.service;
 
+import com.edson.gerenciamentoprodutos.conversor.FormataDinheiro;
 import com.edson.gerenciamentoprodutos.dao.ProdutoDAO;
 import com.edson.gerenciamentoprodutos.model.Ncm;
 import com.edson.gerenciamentoprodutos.model.Produto;
@@ -12,6 +13,7 @@ public class ProdutoService {
 
     Produto p = new Produto();
     ProdutoDAO dao = new ProdutoDAO();
+    FormataDinheiro fd = new FormataDinheiro();
 
     public void salvar() throws Exception {
         Date d = new Date();
@@ -35,6 +37,7 @@ public class ProdutoService {
         p.setValor(0.89);
         p = dao.Salvar(p);
         System.out.println(p.toString() + "  data hora :  " + d);
+        System.out.println("Valor fomratado :"+fd.formataDinheiro(p.getValor()));
     }
 
     public void deletar(Long id) {
