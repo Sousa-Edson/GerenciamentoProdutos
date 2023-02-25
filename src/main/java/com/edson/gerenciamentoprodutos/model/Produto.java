@@ -1,42 +1,38 @@
 package com.edson.gerenciamentoprodutos.model;
 
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Unidade.consultaTodos",
-            query = "SELECT u FROM Unidade u ")
+    @NamedQuery(name = "Produto.consultaTodos",
+            query = "SELECT p FROM Produto p ")
 
 })
-public class Unidade {
+public class Produto {
 
     @Id
     @GeneratedValue
     private Long id;
     private String nome;
-    private String descricao;
     private Boolean ativo;
+    private Double valor;
+    private String observação;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
     private Date dataHora;
-
     @ManyToOne()
     private Usuario usuario;
-
-    @OneToMany(mappedBy = "unidade", fetch = FetchType.LAZY)
-    private List<Produto> produtos;
+    @ManyToOne()
+    private Unidade unidade;
 
     public Long getId() {
         return id;
@@ -62,6 +58,22 @@ public class Unidade {
         this.ativo = ativo;
     }
 
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
+    public String getObservação() {
+        return observação;
+    }
+
+    public void setObservação(String observação) {
+        this.observação = observação;
+    }
+
     public Date getDataHora() {
         return dataHora;
     }
@@ -78,25 +90,17 @@ public class Unidade {
         this.usuario = usuario;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public Unidade getUnidade() {
+        return unidade;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
+    public void setUnidade(Unidade unidade) {
+        this.unidade = unidade;
     }
 
     @Override
     public String toString() {
-        return "Unidade{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
+        return "Produto{" + "id=" + id + ", nome=" + nome + ", ativo=" + ativo + ", valor=" + valor + ", observa\u00e7\u00e3o=" + observação + ", dataHora=" + dataHora + '}';
     }
 
 }

@@ -1,6 +1,6 @@
 package com.edson.gerenciamentoprodutos.dao;
 
-import com.edson.gerenciamentoprodutos.model.Unidade;
+import com.edson.gerenciamentoprodutos.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -8,70 +8,69 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class UnidadeDAO {
+public class ProdutoDAO {
 
     public EntityManager getEM() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev-up");
         return factory.createEntityManager();
     }
 
-    public Unidade Salvar(Unidade unidade) throws Exception {
+    public Produto Salvar(Produto produto) throws Exception {
         EntityManager em = getEM();
         try {
             em.getTransaction().begin();
-            if (unidade.getId() == null) {
-                em.persist(unidade); // executa inserir
+            if (produto.getId() == null) {
+                em.persist(produto); // executa inserir
             } else {
-                if (!em.contains(unidade)) {
-                    if (em.find(Unidade.class, unidade.getId()) == null) {
+                if (!em.contains(produto)) {
+                    if (em.find(Produto.class, produto.getId()) == null) {
                         throw new Exception("Erro ao atualizar!!");
                     }
                 }
-                unidade = em.merge(unidade); // executa update
+                produto = em.merge(produto); // executa update
             }
             em.getTransaction().commit();
         } finally {
             em.close();
         }
-        return unidade;
+        return produto;
     }
 
-    public Unidade remover(Long id) {
+    public Produto remover(Long id) {
         EntityManager em = getEM();
-        Unidade unidade = em.find(Unidade.class, id);
+        Produto produto = em.find(Produto.class, id);
         try {
             em.getTransaction().begin();
-            em.remove(unidade);
+            em.remove(produto);
             em.getTransaction().commit();
         } finally {
             em.close();
         }
-        return unidade;
+        return produto;
     }
 
-    public Unidade consultaPorId(Long id) {
+    public Produto consultaPorId(Long id) {
         EntityManager em = getEM();
-        Unidade unidade = null;
+        Produto produto = null;
         try {
-            unidade = em.find(Unidade.class, id);
+            produto = em.find(Produto.class, id);
         } finally {
             em.close();
         }
-        return unidade;
+        return produto;
     }
 
-    public List<Unidade> consultarTodos() {
+    public List<Produto> consultarTodos() {
         EntityManager em = getEM();
-        List<Unidade> unidades;
+        List<Produto> produtos;
         try {
-            Query q = em.createNamedQuery("Unidade.consultaTodos");
-            unidades = q.getResultList();
+            Query q = em.createNamedQuery("Produto.consultaTodos");
+            produtos = q.getResultList();
         } catch (Exception e) {
-            unidades = new ArrayList();
+            produtos = new ArrayList();
         } finally {
             em.close();
         }
-        return unidades;
+        return produtos;
     }
-
 }

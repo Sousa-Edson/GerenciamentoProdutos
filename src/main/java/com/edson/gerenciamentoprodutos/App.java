@@ -1,12 +1,12 @@
  
 package com.edson.gerenciamentoprodutos;
 
-import com.edson.gerenciamentoprodutos.service.UnidadeService;
+import com.edson.gerenciamentoprodutos.service.ProdutoService;
  
 public class App {
 
     public static void main(String[] args) throws Exception {
-        UnidadeService service = new UnidadeService();
-        service.salvar();
+        ProdutoService service = new ProdutoService();
+        service.consultaTodos();
     }
 }
