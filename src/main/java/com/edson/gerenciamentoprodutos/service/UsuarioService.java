@@ -16,9 +16,9 @@ public class UsuarioService {
 
     public void salvar() throws Exception {
         Date d = new Date();
-        u.setNome("Ian Teste");
-        u.setLogin("i09");
-        u.setSenha("1234");
+        u.setNome("Admin");
+        u.setLogin("admin");
+        u.setSenha("admin");
         u.setDataHora(d);
 //        u.setId(4L);
         u = dao.Salvar(u);

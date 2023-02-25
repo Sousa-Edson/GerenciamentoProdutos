@@ -42,7 +42,7 @@ public class Nota {
 
     @OneToMany(mappedBy = "nota")
     private List<Item> itens;
-    
+
     @ManyToOne()
     private Cfop cfop;
 
@@ -133,8 +133,6 @@ public class Nota {
     public void setCfop(Cfop cfop) {
         this.cfop = cfop;
     }
-
-     
 
     @Override
     public String toString() {
