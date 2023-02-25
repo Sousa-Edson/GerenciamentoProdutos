@@ -1,6 +1,7 @@
 package com.edson.gerenciamentoprodutos.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,6 +39,9 @@ public class Nota {
 
     @ManyToOne()
     private Empresa empresa;
+    
+     @OneToMany(mappedBy = "nota")
+    private List<Item> itens;
 
     public Long getId() {
         return id;
@@ -109,6 +114,15 @@ public class Nota {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+
+    public List<Item> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
+    
 
     @Override
     public String toString() {

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,6 +44,15 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private List<Cfop> cfops;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Produto> produtos;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Nota> notas;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Item> itens;
 
     public Long getId() {
         return id;
@@ -116,6 +124,30 @@ public class Usuario {
 
     public void setCfops(List<Cfop> cfops) {
         this.cfops = cfops;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public List<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Nota> notas) {
+        this.notas = notas;
+    }
+
+    public List<Item> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
     }
 
     @Override
