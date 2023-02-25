@@ -16,7 +16,7 @@ public class FormataDinheiro {
         }
     }
 
-    public String toStringForDoubleMoney(Double dValor) {
+    public String toDoubleForStringMoney(Double dValor) {
         try {
             BigDecimal df = new BigDecimal(dValor);
             NumberFormat nf = NumberFormat.getCurrencyInstance();

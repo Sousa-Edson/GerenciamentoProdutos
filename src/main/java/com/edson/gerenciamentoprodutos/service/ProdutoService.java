@@ -1,7 +1,6 @@
 package com.edson.gerenciamentoprodutos.service;
 
-import com.edson.gerenciamentoprodutos.conversor.FormataDinheiro;
-import com.edson.gerenciamentoprodutos.conversor.FormataMilhar;
+import com.edson.gerenciamentoprodutos.conversor.Conversor;
 import com.edson.gerenciamentoprodutos.dao.ProdutoDAO;
 import com.edson.gerenciamentoprodutos.model.Ncm;
 import com.edson.gerenciamentoprodutos.model.Produto;
@@ -13,22 +12,21 @@ import java.util.List;
 public class ProdutoService {
 
     Produto p = new Produto();
-    ProdutoDAO dao = new ProdutoDAO();
-    FormataDinheiro fd = new FormataDinheiro();
-    FormataMilhar fm = new FormataMilhar();
+    ProdutoDAO dao = new ProdutoDAO(); 
+    Conversor conversor ;
 
     public void salvar() throws Exception {
         Date d = new Date();
-        
+
         Usuario user = new Usuario();
         user.setId(1L);
-        
+
         Unidade uni = new Unidade();
         uni.setId(1L);
-        
+
         Ncm ncm = new Ncm();
         ncm.setId(1L);
-        
+
         p.setNome("Abacate");
         p.setObservação("Abacate amarelo");
         p.setAtivo(true);
@@ -36,10 +34,10 @@ public class ProdutoService {
         p.setUnidade(uni);
         p.setNcm(ncm);
         p.setDataHora(d);
-        p.setValor(fm.toStringForDouble("70,899"));
+        p.setValor(conversor.formataMilhar.toStringForDouble("70,899"));
         p = dao.Salvar(p);
         System.out.println(p.toString() + "  data hora :  " + d);
-        System.out.println("Valor formatado :"+fd.toStringForDoubleMoney(p.getValor()));
+        System.out.println("Valor formatado :" +conversor.formataDinheiro.toDoubleForStringMoney(p.getValor()));
     }
 
     public void deletar(Long id) {
@@ -60,7 +58,7 @@ public class ProdutoService {
         for (Produto p : produtos) {
             System.out.println(p.toString());
             System.out.println(p.getUsuario().getNome());
-        System.out.println(p.getUnidade().getNome());
+            System.out.println(p.getUnidade().getNome());
         }
     }
 }
