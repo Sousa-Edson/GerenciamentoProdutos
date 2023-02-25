@@ -1,6 +1,7 @@
 package com.edson.gerenciamentoprodutos.service;
 
 import com.edson.gerenciamentoprodutos.dao.NotaDAO;
+import com.edson.gerenciamentoprodutos.model.Cfop;
 import com.edson.gerenciamentoprodutos.model.Empresa;
 import com.edson.gerenciamentoprodutos.model.Nota;
 import com.edson.gerenciamentoprodutos.model.Usuario;
@@ -29,6 +30,9 @@ public class NotaService {
         n.setAtivo(true);
         n.setUsuario(user);
         n.setDataHora(d);
+        Cfop cfop = new Cfop();
+        cfop.setId(1L);
+        n.setCfop(cfop);
         n = dao.Salvar(n);
         System.out.println(n.toString() + "  data hora :  " + d);
     }

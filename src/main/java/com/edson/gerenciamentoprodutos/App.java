@@ -12,9 +12,9 @@ public class App {
 //         NcmService service = new NcmService();
 //        EmpresaService service = new EmpresaService();
 //        CfopService service = new CfopService();
-//        NotaService service = new NotaService();
-        ItemService service = new ItemService();
-        service.consultaPorId(2L);
+        NotaService service = new NotaService();
+//        ItemService service = new ItemService();
+        service.salvar();
 
     }
 }

@@ -39,9 +39,12 @@ public class Nota {
 
     @ManyToOne()
     private Empresa empresa;
-    
-     @OneToMany(mappedBy = "nota")
+
+    @OneToMany(mappedBy = "nota")
     private List<Item> itens;
+    
+    @ManyToOne()
+    private Cfop cfop;
 
     public Long getId() {
         return id;
@@ -122,7 +125,16 @@ public class Nota {
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
-    
+
+    public Cfop getCfop() {
+        return cfop;
+    }
+
+    public void setCfop(Cfop cfop) {
+        this.cfop = cfop;
+    }
+
+     
 
     @Override
     public String toString() {
