@@ -1,7 +1,6 @@
 package com.edson.gerenciamentoprodutos.model;
 
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,25 +9,25 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Empresa.consultaTodos",
-            query = "SELECT e FROM Empresa e ")
+    @NamedQuery(name = "Nota.consultaTodos",
+            query = "SELECT n FROM Nota n ")
 
 })
-public class Empresa {
+public class Nota {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nomeFantasia;
-    private String razaoSocial;
-    private String cnpj;
-    private String ie;
+    private String numero;
+    private String chave;
+    @Column(name = "data_recebimento")
+    private Date dataRecebimento;
+    private Integer tipo;
     private Boolean ativo;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
@@ -36,8 +35,8 @@ public class Empresa {
     @ManyToOne()
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Nota> notas;
+    @ManyToOne()
+    private Empresa empresa;
 
     public Long getId() {
         return id;
@@ -47,36 +46,36 @@ public class Empresa {
         this.id = id;
     }
 
-    public String getNomeFantasia() {
-        return nomeFantasia;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setNomeFantasia(String nomeFantasia) {
-        this.nomeFantasia = nomeFantasia;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public String getRazaoSocial() {
-        return razaoSocial;
+    public String getChave() {
+        return chave;
     }
 
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
+    public void setChave(String chave) {
+        this.chave = chave;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public Date getDataRecebimento() {
+        return dataRecebimento;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setDataRecebimento(Date dataRecebimento) {
+        this.dataRecebimento = dataRecebimento;
     }
 
-    public String getIe() {
-        return ie;
+    public Integer getTipo() {
+        return tipo;
     }
 
-    public void setIe(String ie) {
-        this.ie = ie;
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
     }
 
     public Boolean getAtivo() {
@@ -103,17 +102,17 @@ public class Empresa {
         this.usuario = usuario;
     }
 
-    public List<Nota> getNotas() {
-        return notas;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setNotas(List<Nota> notas) {
-        this.notas = notas;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     @Override
     public String toString() {
-        return "Empresa{" + "id=" + id + ", nomeFantasia=" + nomeFantasia + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", ie=" + ie + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
+        return "Nota{" + "id=" + id + ", numero=" + numero + ", chave=" + chave + ", dataRecebimento=" + dataRecebimento + ", tipo=" + tipo + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
     }
 
 }

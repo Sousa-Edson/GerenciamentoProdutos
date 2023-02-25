@@ -43,6 +43,9 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Empresa> empresas;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Cfop> cfops;
+
     public Long getId() {
         return id;
     }
@@ -105,6 +108,14 @@ public class Usuario {
 
     public void setEmpresas(List<Empresa> empresas) {
         this.empresas = empresas;
+    }
+
+    public List<Cfop> getCfops() {
+        return cfops;
+    }
+
+    public void setCfops(List<Cfop> cfops) {
+        this.cfops = cfops;
     }
 
     @Override

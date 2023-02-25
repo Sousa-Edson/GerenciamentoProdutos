@@ -1,6 +1,7 @@
 package com.edson.gerenciamentoprodutos;
 
 import com.edson.gerenciamentoprodutos.service.CfopService;
+import com.edson.gerenciamentoprodutos.service.NotaService;
 
 public class App {
 
@@ -9,8 +10,9 @@ public class App {
 //         ProdutoService service = new ProdutoService();
 //         NcmService service = new NcmService();
 //        EmpresaService service = new EmpresaService();
-        CfopService service = new CfopService();
-        service.consultaTodos();
+//        CfopService service = new CfopService();
+        NotaService service = new NotaService();
+        service.consultaPorId(1L);
 
     }
 }

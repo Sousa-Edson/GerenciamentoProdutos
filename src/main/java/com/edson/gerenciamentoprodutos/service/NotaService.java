@@ -1,0 +1,55 @@
+package com.edson.gerenciamentoprodutos.service;
+
+import com.edson.gerenciamentoprodutos.dao.NotaDAO;
+import com.edson.gerenciamentoprodutos.model.Empresa;
+import com.edson.gerenciamentoprodutos.model.Nota;
+import com.edson.gerenciamentoprodutos.model.Usuario;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+public class NotaService {
+
+    Nota n = new Nota();
+    NotaDAO dao = new NotaDAO();
+    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
+
+    public void salvar() throws Exception {
+        Date d = new Date();
+        Usuario user = new Usuario();
+        user.setId(1L);
+        Empresa emp = new Empresa();
+        emp.setId(1L);
+        n.setNumero("001");
+        n.setChave("000001000001");
+        n.setDataRecebimento(df.parse("12/01/2023 09:00"));
+        n.setTipo(0);
+        n.setEmpresa(emp);
+        n.setAtivo(true);
+        n.setUsuario(user);
+        n.setDataHora(d);
+        n = dao.Salvar(n);
+        System.out.println(n.toString() + "  data hora :  " + d);
+    }
+
+    public void deletar(Long id) {
+        n.setId(id);
+        n = dao.remover(n.getId());
+        System.out.println(n.toString());
+    }
+
+    public void consultaPorId(Long id) {
+        Nota u = dao.consultaPorId(id);
+        System.out.println(u.toString());
+        System.out.println(u.getUsuario().getNome());
+         System.out.println(u.getEmpresa().getRazaoSocial());
+    }
+
+    public void consultaTodos() {
+        List<Nota> notas = dao.consultarTodos();
+        for (Nota u : notas) {
+            System.out.println(u.toString());
+        }
+    }
+}

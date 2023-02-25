@@ -6,6 +6,7 @@
     <class>com.edson.gerenciamentoprodutos.model.Ncm</class>
     <class>com.edson.gerenciamentoprodutos.model.Produto</class>
     <class>com.edson.gerenciamentoprodutos.model.Unidade</class>
+    <class>com.edson.gerenciamentoprodutos.model.Cfop</class>
     <properties>
       <!--dados da conexao-->
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GerenciamentoProdutos"/>
