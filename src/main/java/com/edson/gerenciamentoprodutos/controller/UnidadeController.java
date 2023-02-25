@@ -2,9 +2,7 @@ package com.edson.gerenciamentoprodutos.controller;
 
 import com.edson.gerenciamentoprodutos.conversor.Conversor;
 import com.edson.gerenciamentoprodutos.model.Unidade;
-import com.edson.gerenciamentoprodutos.model.Usuario;
 import com.edson.gerenciamentoprodutos.service.UnidadeService;
-import com.edson.gerenciamentoprodutos.service.UsuarioService;
 import com.edson.gerenciamentoprodutos.view.UnidadeForm;
 
 public class UnidadeController extends UnidadeService {
@@ -13,12 +11,9 @@ public class UnidadeController extends UnidadeService {
     private final UnidadeForm view;
 
     private Unidade beans = new Unidade();
-    private Usuario user = new Usuario();
 
     public UnidadeController(UnidadeForm view) {
         this.view = view;
-//        this.beans = new Unidade();
-
     }
 
     public void clear() {
@@ -40,31 +35,6 @@ public class UnidadeController extends UnidadeService {
     public void create() throws Exception {
         UnidadeService service = new UnidadeService();
         service.create(view);
-//        try {
-//            beans.setNome(view.getTxtSigla().getText());
-//            beans.setDescricao(view.getTxtDescricao().getText());
-//            beans.setAtivo(true);
-//            user.setId(1L);
-//            beans.setUsuario(user);
-//            beans.setId(0L);
-//            
-//            UnidadeService service = new UnidadeService();
-//            service.salvar();
-//
-////            if (view.getIdUnidade() == 0) {
-////                if (save(beans)) {
-////                    clear();
-////                }
-////
-////            } else {
-////                if (update(beans)) {
-////                    clear();
-////                }
-////            }
-//
-//        } catch (Exception e) {
-//            System.out.println("######### ERRO \n" + e);
-//        }
     }
 
     public void destroy(int id) {
