@@ -33,4 +33,27 @@ public class UsuarioDAO {
         return usuario;
     }
 
+    public void remover(Long id) {
+        EntityManager em = getEM();
+        Usuario usuario = em.find(Usuario.class, id);
+        try {
+            em.getTransaction().begin();
+            em.remove(usuario);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    public Usuario consultaPorId(Long id) {
+        EntityManager em = getEM();
+        Usuario usuario = null;
+        try {
+            usuario = em.find(Usuario.class, id);
+        } finally {
+            em.close();
+        }
+        return usuario;
+    }
+
 }
