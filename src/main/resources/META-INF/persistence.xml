@@ -8,6 +8,9 @@
     <class>com.edson.gerenciamentoprodutos.model.Unidade</class>
     <class>com.edson.gerenciamentoprodutos.model.Cfop</class>
     <class>com.edson.gerenciamentoprodutos.model.Nota</class>
+    <class>com.edson.gerenciamentoprodutos.model.Endereco</class>
+    <class>com.edson.gerenciamentoprodutos.model.Item</class>
+    <class>com.edson.gerenciamentoprodutos.model.Telefone</class>
     <properties>
       <!--dados da conexao-->
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GerenciamentoProdutos"/>

@@ -17,7 +17,7 @@ public class App {
 //        NotaService service = new NotaService();
 //        ItemService service = new ItemService();
 //        UsuarioService service = new UsuarioService();
-        service.deletar(6L);
+        service.salvar();
 
     }
 }

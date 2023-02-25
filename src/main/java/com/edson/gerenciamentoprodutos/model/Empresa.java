@@ -40,9 +40,12 @@ public class Empresa {
 
     @OneToMany(mappedBy = "empresa")
     private List<Nota> notas;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
+
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+    private List<Telefone> telefones;
 
     public Long getId() {
         return id;
@@ -122,6 +125,14 @@ public class Empresa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
     }
 
     @Override

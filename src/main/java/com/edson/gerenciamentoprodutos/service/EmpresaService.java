@@ -3,9 +3,11 @@ package com.edson.gerenciamentoprodutos.service;
 import com.edson.gerenciamentoprodutos.dao.EmpresaDAO;
 import com.edson.gerenciamentoprodutos.model.Empresa;
 import com.edson.gerenciamentoprodutos.model.Endereco;
+import com.edson.gerenciamentoprodutos.model.Telefone;
 import com.edson.gerenciamentoprodutos.model.Usuario;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +37,12 @@ public class EmpresaService {
         endereco.setEstado("SP");
         endereco.setCep("06100-010");
         e.setEndereco(endereco);
+        List<Telefone> t = new ArrayList();
+        Telefone telefone = new Telefone();
+        telefone.setTelefone("(011)4168-3085");
+        telefone.setEmpresa(e);
+        t.add(telefone);
+        e.setTelefones(t);
         e = dao.Salvar(e);
         System.out.println(e.toString() + "  data hora :  " + d);
     }
