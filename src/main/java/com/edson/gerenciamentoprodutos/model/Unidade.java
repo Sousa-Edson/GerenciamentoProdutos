@@ -1,40 +1,36 @@
 package com.edson.gerenciamentoprodutos.model;
 
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Usuario.consultaTodos",
-            query = "SELECT u FROM Usuario u ")
+    @NamedQuery(name = "Unidade.consultaTodos",
+            query = "SELECT u FROM Unidade u ")
 
 })
 
-public class Usuario {
+public class Unidade {
 
     @Id
     @GeneratedValue
     private Long id;
     private String nome;
-    private String login;
-    private String senha;
-
+    private Boolean ativo;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
     private Date dataHora;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<Unidade> unidades;
+    @ManyToOne()
+    private Usuario usuario;
 
     public Long getId() {
         return id;
@@ -52,20 +48,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
+    public Boolean getAtivo() {
+        return ativo;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 
     public Date getDataHora() {
@@ -76,17 +64,17 @@ public class Usuario {
         this.dataHora = dataHora;
     }
 
-    public List<Unidade> getUnidades() {
-        return unidades;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUnidades(List<Unidade> unidades) {
-        this.unidades = unidades;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", dataHora=" + dataHora + ", unidades=" + unidades + '}';
+        return "Unidade{" + "id=" + id + ", nome=" + nome + ", ativo=" + ativo + ", dataHora=" + dataHora + '}';
     }
 
 }

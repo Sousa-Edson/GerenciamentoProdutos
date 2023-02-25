@@ -1,27 +1,29 @@
 package com.edson.gerenciamentoprodutos.service;
 
-import com.edson.gerenciamentoprodutos.dao.UsuarioDAO;
+import com.edson.gerenciamentoprodutos.dao.UnidadeDAO;
+import com.edson.gerenciamentoprodutos.model.Unidade;
 import com.edson.gerenciamentoprodutos.model.Usuario;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class UsuarioService {
+public class UnidadeService {
 
-    Usuario u = new Usuario();
-    UsuarioDAO dao = new UsuarioDAO();
+    Unidade u = new Unidade();
+    UnidadeDAO dao = new UnidadeDAO();
     DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
     public void salvar() throws Exception {
         Date d = new Date();
-        u.setNome("Ian Teste");
-        u.setLogin("i09");
-        u.setSenha("1234");
+        Usuario user = new Usuario();
+        user.setId(2L);
+        u.setNome("exs");
+        u.setAtivo(true);
+        u.setUsuario(user);
         u.setDataHora(d);
-        u.setId(4L);
         u = dao.Salvar(u);
-        System.out.println(u.toString() + "  data hora: " + d);
+        System.out.println(u.toString() + "  data hora :  " + d);
     }
 
     public void deletar(Long id) {
@@ -31,13 +33,14 @@ public class UsuarioService {
     }
 
     public void consultaPorId(Long id) {
-        Usuario u = dao.consultaPorId(id);
+        Unidade u = dao.consultaPorId(id);
         System.out.println(u.toString());
+        System.out.println(u.getUsuario().getNome());
     }
 
     public void consultaTodos() {
-        List<Usuario> usuarios = dao.consultarTodos();
-        for (Usuario u : usuarios) {
+        List<Unidade> unidades = dao.consultarTodos();
+        for (Unidade u : unidades) {
             System.out.println(u.toString());
         }
     }
