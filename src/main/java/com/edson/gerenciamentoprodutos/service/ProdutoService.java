@@ -36,10 +36,10 @@ public class ProdutoService {
         p.setUnidade(uni);
         p.setNcm(ncm);
         p.setDataHora(d);
-        p.setValor(fm.toStringForDouble("7"));
+        p.setValor(fm.toStringForDouble("70,899"));
         p = dao.Salvar(p);
         System.out.println(p.toString() + "  data hora :  " + d);
-        System.out.println("Valor formatado :"+fd.formataDinheiro(p.getValor()));
+        System.out.println("Valor formatado :"+fd.toStringForDoubleMoney(p.getValor()));
     }
 
     public void deletar(Long id) {

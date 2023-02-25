@@ -1,16 +1,30 @@
 package com.edson.gerenciamentoprodutos.conversor;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
-import java.util.Locale;
 
 public class FormataDinheiro {
 
-    public String formataDinheiro(Double d) {
+    public String toStringForMoney(String txt) {
         try {
-            Locale ptBr = new Locale("pt", "BR");
-            return NumberFormat.getInstance(ptBr).format(d);
-        } catch (Exception e) {
-            return "";
+            BigDecimal df = new BigDecimal(Double.parseDouble(txt.replace("R$", "").replace(" ", "").replace(".", "").replace(",", ".").trim()));
+            NumberFormat nf = NumberFormat.getCurrencyInstance();
+            nf.setMinimumFractionDigits(3);
+            return nf.format(df);
+        } catch (NumberFormatException e) {
+            return null;
         }
+    }
+
+    public String toStringForDoubleMoney(Double dValor) {
+        try {
+            BigDecimal df = new BigDecimal(dValor);
+            NumberFormat nf = NumberFormat.getCurrencyInstance();
+            nf.setMinimumFractionDigits(3);
+            return nf.format(df);
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 }
