@@ -1,6 +1,6 @@
 package com.edson.gerenciamentoprodutos;
 
-import com.edson.gerenciamentoprodutos.service.EmpresaService;
+import com.edson.gerenciamentoprodutos.service.CfopService;
 
 public class App {
 
@@ -8,8 +8,9 @@ public class App {
 //        UnidadeService service = new UnidadeService();
 //         ProdutoService service = new ProdutoService();
 //         NcmService service = new NcmService();
-        EmpresaService service = new EmpresaService();
-        service.salvar();
+//        EmpresaService service = new EmpresaService();
+        CfopService service = new CfopService();
+        service.consultaTodos();
 
     }
 }
