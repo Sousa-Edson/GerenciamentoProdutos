@@ -1,12 +1,11 @@
 package com.edson.gerenciamentoprodutos.service;
 
+import com.edson.gerenciamentoprodutos.conversor.FormataData;
 import com.edson.gerenciamentoprodutos.dao.NotaDAO;
 import com.edson.gerenciamentoprodutos.model.Cfop;
 import com.edson.gerenciamentoprodutos.model.Empresa;
 import com.edson.gerenciamentoprodutos.model.Nota;
 import com.edson.gerenciamentoprodutos.model.Usuario;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class NotaService {
 
     Nota n = new Nota();
     NotaDAO dao = new NotaDAO();
-    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
+    FormataData fd = new FormataData();
 
     public void salvar() throws Exception {
         Date d = new Date();
@@ -24,7 +23,7 @@ public class NotaService {
         emp.setId(1L);
         n.setNumero("001");
         n.setChave("000001000001");
-        n.setDataRecebimento(df.parse("12/01/2023 09:00"));
+        n.setDataRecebimento(fd.dataFormato("12/01/2023 09:00"));
         n.setTipo(0);
         n.setEmpresa(emp);
         n.setAtivo(true);
@@ -47,7 +46,7 @@ public class NotaService {
         Nota u = dao.consultaPorId(id);
         System.out.println(u.toString());
         System.out.println(u.getUsuario().getNome());
-         System.out.println(u.getEmpresa().getRazaoSocial());
+        System.out.println(u.getEmpresa().getRazaoSocial());
     }
 
     public void consultaTodos() {

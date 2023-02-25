@@ -5,8 +5,6 @@ import com.edson.gerenciamentoprodutos.model.Empresa;
 import com.edson.gerenciamentoprodutos.model.Endereco;
 import com.edson.gerenciamentoprodutos.model.Telefone;
 import com.edson.gerenciamentoprodutos.model.Usuario;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +13,6 @@ public class EmpresaService {
 
     Empresa e = new Empresa();
     EmpresaDAO dao = new EmpresaDAO();
-    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
     public void salvar() throws Exception {
         Date d = new Date();

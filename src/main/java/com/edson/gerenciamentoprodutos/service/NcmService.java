@@ -3,8 +3,6 @@ package com.edson.gerenciamentoprodutos.service;
 import com.edson.gerenciamentoprodutos.dao.NcmDAO;
 import com.edson.gerenciamentoprodutos.model.Ncm;
 import com.edson.gerenciamentoprodutos.model.Usuario;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +10,6 @@ public class NcmService {
 
     Ncm n = new Ncm();
     NcmDAO dao = new NcmDAO();
-    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
     public void salvar() throws Exception {
         Date d = new Date();

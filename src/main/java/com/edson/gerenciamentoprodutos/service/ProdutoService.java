@@ -5,8 +5,6 @@ import com.edson.gerenciamentoprodutos.model.Ncm;
 import com.edson.gerenciamentoprodutos.model.Produto;
 import com.edson.gerenciamentoprodutos.model.Unidade;
 import com.edson.gerenciamentoprodutos.model.Usuario;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +12,6 @@ public class ProdutoService {
 
     Produto p = new Produto();
     ProdutoDAO dao = new ProdutoDAO();
-    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
     public void salvar() throws Exception {
         Date d = new Date();
@@ -23,13 +20,13 @@ public class ProdutoService {
         user.setId(1L);
         
         Unidade uni = new Unidade();
-        uni.setId(2L);
+        uni.setId(1L);
         
         Ncm ncm = new Ncm();
         ncm.setId(1L);
         
         p.setNome("Banana");
-        p.setObservação("Banana prata");
+        p.setObservação("Banana da terra");
         p.setAtivo(true);
         p.setUsuario(user);
         p.setUnidade(uni);

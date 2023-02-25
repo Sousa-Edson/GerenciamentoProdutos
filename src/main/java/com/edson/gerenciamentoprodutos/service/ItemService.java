@@ -6,8 +6,6 @@ import com.edson.gerenciamentoprodutos.model.Item;
 import com.edson.gerenciamentoprodutos.model.Nota;
 import com.edson.gerenciamentoprodutos.model.Produto;
 import com.edson.gerenciamentoprodutos.model.Usuario;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +13,6 @@ public class ItemService {
 
     Item item = new Item();
     ItemDAO dao = new ItemDAO();
-    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
     public void salvar() throws Exception {
         Date d = new Date();
@@ -25,7 +22,7 @@ public class ItemService {
         item.setDataHora(d);
         item.setComplemento(" envelopado");
         Produto produto = new Produto();
-        produto.setId(4L);
+        produto.setId(1L);
         item.setProduto(produto);
         item.setQuantidade(100.0);
         item.setStatus(StatusEnum.ENVIADO);

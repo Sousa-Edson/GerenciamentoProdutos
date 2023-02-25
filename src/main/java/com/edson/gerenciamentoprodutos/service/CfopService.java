@@ -3,8 +3,6 @@ package com.edson.gerenciamentoprodutos.service;
 import com.edson.gerenciamentoprodutos.dao.CfopDAO;
 import com.edson.gerenciamentoprodutos.model.Cfop;
 import com.edson.gerenciamentoprodutos.model.Usuario;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +10,6 @@ public class CfopService {
 
     Cfop n = new Cfop();
     CfopDAO dao = new CfopDAO();
-    DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
     public void salvar() throws Exception {
         Date d = new Date();
