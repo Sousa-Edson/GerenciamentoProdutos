@@ -29,7 +29,7 @@ public class Unidade {
     private String nome;
     private String descricao;
     private Boolean ativo;
-    private Boolean fragmentado;
+    private Boolean fragmentado; // inserido para aceitar se é fragmentado
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
     private Date dataHora;
