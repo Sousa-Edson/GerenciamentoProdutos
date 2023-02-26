@@ -37,7 +37,7 @@ public class Unidade {
     @ManyToOne()
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "unidade", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "unidade", fetch = FetchType.EAGER)
     private List<Produto> produtos;
 
     public Long getId() {

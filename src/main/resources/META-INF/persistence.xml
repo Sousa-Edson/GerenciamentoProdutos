@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="dev-up">
-    <class>com.edson.gerenciamentoprodutos.model.Usuario</class>
+<!--    <class>com.edson.gerenciamentoprodutos.model.Usuario</class>
     <class>com.edson.gerenciamentoprodutos.model.Empresa</class>
     <class>com.edson.gerenciamentoprodutos.model.Ncm</class>
     <class>com.edson.gerenciamentoprodutos.model.Produto</class>
@@ -10,7 +10,7 @@
     <class>com.edson.gerenciamentoprodutos.model.Nota</class>
     <class>com.edson.gerenciamentoprodutos.model.Endereco</class>
     <class>com.edson.gerenciamentoprodutos.model.Item</class>
-    <class>com.edson.gerenciamentoprodutos.model.Telefone</class>
+    <class>com.edson.gerenciamentoprodutos.model.Telefone</class>-->
     <properties>
       <!--dados da conexao-->
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GerenciamentoProdutos"/>
@@ -21,9 +21,9 @@
       <property name="javax.persistence.jdbc.password" value="123456"/>
       <!--propriedades do hibernate-->
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-      <property name="hibernate.show_sql" value="true"/>
+<!--      <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>-->
       <!--adicionais-->
     </properties>
   </persistence-unit>

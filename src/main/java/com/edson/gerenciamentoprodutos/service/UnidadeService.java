@@ -4,6 +4,7 @@ import com.edson.gerenciamentoprodutos.dao.UnidadeDAO;
 import com.edson.gerenciamentoprodutos.model.Unidade;
 import com.edson.gerenciamentoprodutos.model.Usuario;
 import com.edson.gerenciamentoprodutos.view.UnidadeForm;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class UnidadeService {
     Unidade u = new Unidade();
     UnidadeDAO dao = new UnidadeDAO();
     
-    public Unidade create(UnidadeForm view) throws Exception {
+    public Unidade create(UnidadeForm view)   {
         Date d = new Date();
         Usuario user = new Usuario();
         user.setId(1L);
@@ -26,7 +27,7 @@ public class UnidadeService {
         
     }
     
-    public void salvar() throws Exception {
+    public void salvar()   {
         Date d = new Date();
         Usuario user = new Usuario();
         user.setId(1L);
@@ -51,10 +52,12 @@ public class UnidadeService {
         System.out.println(u.getUsuario().getNome());
     }
     
-    public void consultaTodos() {
+    public List<Unidade> consultaTodos() {
         List<Unidade> unidades = dao.consultarTodos();
+        ArrayList dados = new ArrayList();
         for (Unidade u : unidades) {
-            System.out.println(u.toString());
-        }
+          dados.add((new Object[]{u.getId(),u.getNome(),u.getDescricao(),u.getFragmentado()}));
+        }//"Id", "Sigla", "Descrição", "Fragmentado"
+        return dados;
     }
 }

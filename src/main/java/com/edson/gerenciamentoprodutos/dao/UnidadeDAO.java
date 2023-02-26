@@ -15,7 +15,7 @@ public class UnidadeDAO {
         return factory.createEntityManager();
     }
 
-    public Unidade Salvar(Unidade unidade) throws Exception {
+    public Unidade Salvar(Unidade unidade)   {
         EntityManager em = getEM();
         try {
             em.getTransaction().begin();
@@ -24,7 +24,7 @@ public class UnidadeDAO {
             } else {
                 if (!em.contains(unidade)) {
                     if (em.find(Unidade.class, unidade.getId()) == null) {
-                        throw new Exception("Erro ao atualizar!!");
+//                        throw new Exception("Erro ao atualizar!!");
                     }
                 }
                 unidade = em.merge(unidade); // executa update

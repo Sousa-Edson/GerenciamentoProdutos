@@ -1,11 +1,12 @@
 package com.edson.gerenciamentoprodutos;
 
 import com.edson.gerenciamentoprodutos.service.UnidadeService;
+import com.edson.gerenciamentoprodutos.view.UnidadeForm;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
-        UnidadeService service = new UnidadeService();
+//        UnidadeService service = new UnidadeService();
 //         ProdutoService service = new ProdutoService();
 //         NcmService service = new NcmService();
 //        EmpresaService service = new EmpresaService();
@@ -15,7 +16,8 @@ public class App {
 //        UsuarioService service = new UsuarioService();
 //        Usuario u = new Usuario();
 //        u.setId(Long.valueOf(1));
-        service.salvar();
-
+//        service.salvar();
+UnidadeForm form = new UnidadeForm();
+form.setVisible(true);
     }
 }
